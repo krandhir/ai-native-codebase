@@ -32,6 +32,19 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
     // Enforce automated architectural boundaries for the AI agent
     testImplementation 'com.tngtech.archunit:archunit-junit5:1.3.0'
+    implementation 'org.apache.kafka:kafka-clients:3.7.0'
+}
+
+// Task to run the Producer
+task runProducer(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'SimpleProducer' // Change to 'com.yourpackage.SimpleProducer' if inside a package
+}
+
+// Task to run the Consumer
+task runConsumer(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'SimpleConsumer' // Change to 'com.yourpackage.SimpleConsumer' if inside a package
 }
 
 test {
